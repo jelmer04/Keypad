@@ -74,7 +74,7 @@ def _path_inject(paths):
     sys.path[:0] = paths
 
 
-_path_inject(['/Users/Jon/Keypad'])
+_path_inject(['/Users/Jon/Projects/Keypad'])
 
 
 import re
@@ -126,7 +126,7 @@ def _run():
     exec(compile(source, script, 'exec'), globals(), globals())
 
 
-DEFAULT_SCRIPT='/Users/Jon/Keypad/keypad.py'
+DEFAULT_SCRIPT='/Users/Jon/Projects/Keypad/keypad.py'
 SCRIPT_MAP={}
 try:
     _run()

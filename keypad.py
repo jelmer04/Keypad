@@ -7,17 +7,27 @@ import cherrypy
 from cherrypy.lib import auth_digest
 import os, os.path
 import rumps, objc
-from subprocess import Popen, PIPE
+from subprocess import Popen, PIPE, call
 
 
-keys = ['.', 0x47, 0x51, 0x4B, 0x43, 0x59, 0x5B, 0x5C, 0x4E, 0x56, 0x57, 0x58, 0x45, 0x53, 0x54, 0x55, 0x4C, 0x52, 0x41]
+keys = ['.', 0x47, 0x51, 0x4B, 0x43, 0x59, 0x5B, 0x5C, 0x4E, 0x56,
+        0x57, 0x58, 0x45, 0x53, 0x54, 0x55, 0x4C, 0x52, 0x41]
 user = {'jon': 'secret'}
 cwd = os.path.abspath(os.getcwd())
 
 # work around for notifications:
 def notification(title, line_one, line_two):
-    cmd = b"""display notification "{}" with title "{}" Subtitle "{}" """.format(line_two, title, line_one)
-    Popen(["osascript", '-'], stdin=PIPE, stdout=PIPE).communicate(cmd)
+    cmd = ["./share/terminal-notifier-2.0.0/" +
+            "terminal-notifier.app/Contents/MacOS/terminal-notifier",
+            #"-appIcon", "Keypad.icns",
+            "-sender", "org.pythonmac.unspecified.keypad",
+            "-title", title,
+            "-subtitle", line_one,
+            "-message", line_two]
+    call(cmd)
+
+    #cmd = b"""display notification "{}" with title "{}" Subtitle "{}" """.format(line_two, title, line_one)
+    #Popen(["osascript", '-'], stdin=PIPE, stdout=PIPE).communicate(cmd)
 
     #rumps.notification(title, line_one, line_two, data=objc.lookUpClass("NSDictionary")())
 
@@ -134,13 +144,13 @@ if __name__ == '__main__':
                 cherrypy.engine.exit()
             rumps.quit_application()
 
-        @rumps.clicked('Test Notification')
-        def notif(self, sender):
-            notification("Keypad", "Test Notification", "Tada!")
+        #@rumps.clicked('Test Notification')
+        #def notif(self, sender):
+        #    notification("Keypad", "Test Notification", "Tada!")
 
-        @rumps.clicked('Test Alert')
-        def alert(self, sender):
-            rumps.alert("Keypad", "Test Notification", "Close")
+        #@rumps.clicked('Test Alert')
+        #def alert(self, sender):
+        #    rumps.alert("Keypad", "Test Notification", "Close")
 
     #cherrypy.quickstart(webapp, '/', conf)
     notification("Keypad", "App starting", "Click run server to begin")

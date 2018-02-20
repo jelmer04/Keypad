@@ -11,9 +11,8 @@ import os
 APP = ['keypad.py']
 DATA_FILES = [(d, [os.path.join(d,f) for f in files])
     for d, folders, files in os.walk('./share')]
-DATA_FILES.append('Keypad.icns')
 OPTIONS = {
-    'iconfile': './Keypad.icns',
+    'iconfile': './share/Keypad.icns',
     'plist': {
         'LSUIElement': True,
         'packages': ['rumps', 'objc']
