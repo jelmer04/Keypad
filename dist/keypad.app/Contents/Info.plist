@@ -5,25 +5,27 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>keypad</string>
+	<string>Keypad</string>
 	<key>CFBundleExecutable</key>
-	<string>keypad</string>
+	<string>Keypad</string>
+	<key>CFBundleGetInfoString</key>
+	<string>Keypad emulator</string>
 	<key>CFBundleIconFile</key>
 	<string>Keypad.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.pythonmac.unspecified.keypad</string>
+	<string>red-box-labs.keypad</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>keypad</string>
+	<string>Keypad</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.2</string>
+	<string>0.0.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.2</string>
+	<string>0.0.1</string>
 	<key>LSHasLocalizedDisplayName</key>
 	<false/>
 	<key>LSUIElement</key>
@@ -31,7 +33,7 @@
 	<key>NSAppleScriptEnabled</key>
 	<false/>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright not specified</string>
+	<string>Copyright © 2018, Jon Elmer, All Rights Reserved</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -88,10 +90,5 @@
 			<string>0.14</string>
 		</dict>
 	</dict>
-	<key>packages</key>
-	<array>
-		<string>rumps</string>
-		<string>objc</string>
-	</array>
 </dict>
 </plist>
