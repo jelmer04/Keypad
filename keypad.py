@@ -14,7 +14,7 @@ notifier = pync.Notifier
 
 keys = ['.', 0x47, 0x51, 0x4B, 0x43, 0x59, 0x5B, 0x5C, 0x4E, 0x56,
         0x57, 0x58, 0x45, 0x53, 0x54, 0x55, 0x4C, 0x52, 0x41]
-user = {'jon': 'secret'}
+user = {'user': 'password'}
 cwd = os.path.abspath(os.getcwd())
 
 # work around for notifications:
@@ -22,21 +22,6 @@ def notification(title, line_one, line_two):
 
     notifier.notify(line_two, subtitle=line_one, title=title,
                     sender="org.pythonmac.unspecified.keypad")
-
-    cmd = ["./share/terminal-notifier-2.0.0/" +
-            "terminal-notifier.app/Contents/MacOS/terminal-notifier",
-            #"-appIcon", "Keypad.icns",
-            "-sender", "org.pythonmac.unspecified.keypad",
-            "-title", title,
-            "-subtitle", line_one,
-            "-message", line_two]
-    #call(cmd)
-
-    #cmd = b"""display notification "{}" with title "{}" Subtitle "{}" """.format(line_two, title, line_one)
-    #Popen(["osascript", '-'], stdin=PIPE, stdout=PIPE).communicate(cmd)
-
-    #rumps.notification(title, line_one, line_two, data=objc.lookUpClass("NSDictionary")())
-
 
 running = False
 
@@ -73,7 +58,6 @@ def load_config():
 
     j = json.loads(open(cwd+"/share/config.json").read())
 
-    keys = j["keys"]
     user = {str(j["user"]): str(j["pass"])}
 
     cherrypy.server.socket_host = "0.0.0.0"
@@ -132,12 +116,14 @@ if __name__ == '__main__':
         def onoff(self, sender):
             sender.state = not sender.state
             if sender.state:
+                self.icon=cwd+"/share/Keypad.icns"
                 address = load_config()
                 cherrypy.engine.start()
                 notification("Keypad", "Server started", "Navigate to {} on your device".format(address))
                 running = True
 
             else:
+                self.icon=cwd+"/share/Disabled.icns"
                 notification("Keypad", "Server stopped", "Click run server to begin")
                 cherrypy.engine.exit()
                 running = False
@@ -151,5 +137,5 @@ if __name__ == '__main__':
             rumps.quit_application()
 
     notification("Keypad", "App starting", "Click run server to begin")
-    app = StatusBarApp("Keypad", icon=cwd+"/Keypad.icns", quit_button=None)
+    app = StatusBarApp("Keypad", icon=cwd+"/share/Disabled.icns", quit_button=None)
     app.run()
