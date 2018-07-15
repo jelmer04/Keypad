@@ -1,0 +1,6 @@
+[submodule "pync"]
+	path = pync
+	url = git://github.com/SeTeM/pync.git
+[submodule "share/pync"]
+	path = share/pync
+	url = git://github.com/SeTeM/pync.git

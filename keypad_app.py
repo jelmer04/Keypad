@@ -1,10 +1,18 @@
 # -- coding: utf-8 --
 
 import rumps, objc
-import pync
-import os.path
+import os, os.path
 
 cwd = os.path.abspath(os.getcwd())
+
+print(cwd)
+
+import sys
+sys.path.append(cwd + '/share/pync')
+
+import dateutil.parser
+import pync
+
 
 class StatusBarApp(rumps.App):
     def __init__(self, *args, **kwargs):
@@ -49,7 +57,7 @@ class StatusBarApp(rumps.App):
 
     @rumps.clicked('Quit')
     def clean_up_before_quit(self, _):
-        print '*** Quitting ***'
+        print('*** Quitting ***')
         if self.server.running:
             self.notify("Server stopped", "Application closed")
             self.server.stop()

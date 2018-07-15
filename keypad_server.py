@@ -3,12 +3,12 @@
 import json
 import socket
 from keyboard import send
+
 import cherrypy
 from cherrypy.lib import auth_digest
 
 import os, os.path
 cwd = os.path.abspath(os.getcwd())
-
 
 #cherrypy.config.update({
 #     'global': {

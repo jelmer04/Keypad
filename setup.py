@@ -16,6 +16,7 @@ VERSION = "0.0.1"
 
 DATA_FILES = [(d, [os.path.join(d,f) for f in files])
     for d, folders, files in os.walk('./share')]
+
 OPTIONS = {
     'iconfile': './share/Keypad.icns',
     'plist': {
@@ -30,14 +31,15 @@ OPTIONS = {
     },
 }
 
+packages = find_packages()
+
 setup(
     name=APP_NAME,
     version=VERSION,
     app=APP,
     data_files=DATA_FILES,
-    packages=find_packages(),
+    packages=packages,
     options={'py2app': OPTIONS},
     setup_requires=['py2app'],
-    exclude=['tensorflow', 'tensorboard', 'terminado', 'sphinx', 'notebook',
-             'ipykernel', 'numpy', 'matplotlib', 'jupyter_client', 'jupyter_core']
+    include=['cherrypy', 'six.moves'],
 )
