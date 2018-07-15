@@ -10,11 +10,11 @@ import os, os.path
 cwd = os.path.abspath(os.getcwd())
 
 
-cherrypy.config.update({
-     'global': {
-        'environment' : 'production'
-      }
- })
+#cherrypy.config.update({
+#     'global': {
+#        'environment' : 'production'
+#      }
+# })
 
 
 @cherrypy.expose
@@ -32,12 +32,15 @@ class KeypadWebService(object):
     def GET(self):
         return "This is the generator"
 
-    # TODO: handle bad key_index
     def POST(self):
-        send(self.keys[int(key_index)])
+        pass
 
     def PUT(self, key_index):
-        send(self.keys[int(key_index)])
+        try:
+            send(self.keys[int(key_index)])
+        except:
+            cherrypy.response.headers["Status"] = "400"
+            return "Bad key_index\r"
 
     def DELETE(self):
         pass

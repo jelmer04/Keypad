@@ -4,9 +4,6 @@ import rumps, objc
 import pync
 import os.path
 
-# TODO: remove the need for this!!
-import cherrypy
-
 cwd = os.path.abspath(os.getcwd())
 
 class StatusBarApp(rumps.App):
