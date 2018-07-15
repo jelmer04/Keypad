@@ -38,4 +38,6 @@ setup(
     packages=find_packages(),
     options={'py2app': OPTIONS},
     setup_requires=['py2app'],
+    exclude=['tensorflow', 'tensorboard', 'terminado', 'sphinx', 'notebook',
+             'ipykernel', 'numpy', 'matplotlib', 'jupyter_client', 'jupyter_core']
 )

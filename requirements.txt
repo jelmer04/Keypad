@@ -1,7 +1,5 @@
-keyboard
-cherrypy
-json
-socket
+CherryPy
 rumps
-objc
 pync
+keyboard
+py2app

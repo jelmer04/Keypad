@@ -118,10 +118,6 @@ def load_config():
             'tools.staticdir.on': True,
             'tools.staticdir.dir': cwd+'/share/public'
         },
-        '/favicon.ico': {
-            'tools.staticfile.on': True,
-            'tools.staticfile.filename': cwd+'/share/Keypad.ico'
-        }
     }
 
     return conf, port
