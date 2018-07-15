@@ -25,7 +25,7 @@ html, body{
 
 #keypad {
   position: absolute;
-  max-width: calc(100vh - var(--padding));
+  max-width: calc(100vmin - var(--padding));
   width: calc(100% - var(--padding));
   height: calc(100% - var(--padding));
 }
@@ -75,8 +75,7 @@ html, body{
   border: 2px solid gray;
   color: white;
   border-radius: 5px;
-  font-size: 50px;
-  box-shadow: 0 5px gray;
+  font-size: 8vmin;
 
   transition: 0.05s;
 
@@ -87,7 +86,6 @@ html, body{
 
 .button:active {
   background-color: #333;
-  box-shadow: 0 0px gray;
   transform: translateY(5px);
 }
 
