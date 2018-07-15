@@ -11,7 +11,6 @@ import pync
 
 notifier = pync.Notifier
 
-
 keys = ['.', 0x47, 0x51, 0x4B, 0x43, 0x59, 0x5B, 0x5C, 0x4E, 0x56,
         0x57, 0x58, 0x45, 0x53, 0x54, 0x55, 0x4C, 0x52, 0x41]
 user = {'user': 'password'}
@@ -21,7 +20,7 @@ cwd = os.path.abspath(os.getcwd())
 def notification(title, line_one, line_two):
 
     notifier.notify(line_two, subtitle=line_one, title=title,
-                    sender="org.pythonmac.unspecified.keypad")
+                    sender="red-box-labs.keypad")
 
 running = False
 
@@ -53,6 +52,8 @@ class KeypadWebService(object):
         pass
 
 def load_config():
+
+    # TODO: handle errors in input!!
     print("*** Loading config from file ***")
     jsonify_quotes(cwd+'/share/config.json')
 
