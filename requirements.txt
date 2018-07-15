@@ -1,6 +1,5 @@
 CherryPy
 rumps
-pync
 keyboard
 py2app
 python-dateutil
