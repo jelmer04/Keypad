@@ -1,10 +1,16 @@
+# Keypad
 
-# Installing
+Simple http num-pad emulator for macOS.
 
 
 
+## Installation
 
-# Building for development
+ 1. Download the latest [release](https://github.com/jelmer04/Keypad/releases).
+ 1. Unzip and run!
+
+
+## Building for development
 
  1. Create a virtual environment for development [(see here.)](http://www.pythonforbeginners.com/basics/how-to-use-python-virtualenv/)
  1. Clone the repo with `git clone https://github.com/jelmer04/Keypad.git`
