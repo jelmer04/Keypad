@@ -1,5 +1,18 @@
 # -- coding: utf-8 --
 
+import sys
+import os, os.path
+
+scd = os.path.dirname(os.path.dirname(os.path.realpath(sys.argv[0])))
+print(scd)
+
+#pyncdir = os.path.join(scd, 'Resources/share/pync')
+#print(pyncdir)
+#sys.path.append(pyncdir)
+
+resources = os.path.join(scd, 'Resources/')
+os.chdir(resources)
+
 import keypad_app
 import keypad_server
 
