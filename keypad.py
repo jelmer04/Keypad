@@ -11,7 +11,10 @@ print(scd)
 #sys.path.append(pyncdir)
 
 resources = os.path.join(scd, 'Resources/')
-os.chdir(resources)
+try:
+    os.chdir(resources)
+except:
+    pass
 
 import keypad_app
 import keypad_server
